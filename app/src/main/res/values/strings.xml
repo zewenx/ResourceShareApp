@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ResourceShare</string>
+    <string name="fetch">fetch</string>
+    <string name="share">share</string>
+    <string name="exchange">exchange</string>
+    <string name="remove">remove</string>
+    <string name="publish">publish</string>
+    <string name="query">query</string>
+</resources>
