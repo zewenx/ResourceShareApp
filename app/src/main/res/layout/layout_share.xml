@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/commandLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@id/commandLayout"
+        android:id="@+id/hostIpLayout"
+        android:gravity="center_horizontal"
+        >
+        <TextView
+            android:id="@+id/hostText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Host"
+            android:textSize="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/hostEdit"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/hostText"
+            android:layout_marginLeft="5dp"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:textSize="16dp"
+            android:text="192.168.1.101"/>
+        <!--android:text="sunrise.cis.unimelb.edu.au"-->
+
+        <TextView
+            android:id="@+id/portText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Port"
+            android:textSize="10dp"
+            android:layout_toRightOf="@id/hostEdit"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true" />
+        <EditText
+            android:id="@+id/portEdit"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@id/portText"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            android:textSize="16dp"
+            android:inputType="number"
+            android:text="8888"
+            />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/commandName"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:textSize="18dp"
+        tools:text="name"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <include
+        android:id="@+id/nameResource"
+        layout="@layout/layout_line" />
+    <include
+        android:id="@+id/descriptionResource"
+        layout="@layout/layout_line" />
+    <include
+        android:id="@+id/tagsResource"
+        layout="@layout/layout_line" />
+    <include
+        android:id="@+id/URIResource"
+        layout="@layout/layout_line" />
+    <include
+        android:id="@+id/channelResource"
+        layout="@layout/layout_line" />
+    <include
+        android:id="@+id/ownerResource"
+        layout="@layout/layout_line" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:text="submit"
+        android:id="@+id/submit"
+        />
+
+</LinearLayout>
+
