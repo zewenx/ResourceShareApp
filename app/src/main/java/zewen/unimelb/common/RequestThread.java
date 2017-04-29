@@ -42,7 +42,7 @@ public class RequestThread extends Thread {
             InetSocketAddress address = null;
             address = new InetSocketAddress(host, Integer.parseInt(port));
             socket = new Socket();
-            socket.setSoTimeout(60000);
+            socket.setSoTimeout(600000);
             socket.connect(address);
             DataInputStream in = new DataInputStream(socket.getInputStream());
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
@@ -73,10 +73,10 @@ public class RequestThread extends Thread {
                         }
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            responseList.add(e.getMessage());
+            responseList.add(e.getClass().getCanonicalName());
         } finally {
             try {
                 socket.close();

@@ -27,11 +27,11 @@ public class ResultActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-       List list =  getIntent().getStringArrayListExtra("response");
-        String resultdata="";
-        for (Object o : list){
-            resultdata+=o.toString()+"\n\n";
+        List list = getIntent().getStringArrayListExtra("response");
+        String response = "";
+        for (Object o : list) {
+            response += o.toString() + "\n\n";
         }
-        result.setText(resultdata);
+        result.setText(response);
     }
 }
