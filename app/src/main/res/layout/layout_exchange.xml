@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/commandLayout"
     android:layout_width="match_parent"
@@ -12,7 +12,6 @@
         android:id="@+id/hostIpLayout"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:layout_toRightOf="@id/commandLayout"
         android:gravity="center_horizontal">
 
         <TextView
@@ -60,48 +59,57 @@
         android:id="@+id/commandName"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
+        android:layout_below="@id/hostIpLayout"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="18dp"
         tools:text="name" />
 
-    <include
-        android:id="@+id/secretLine"
-        layout="@layout/layout_line"
-        android:visibility="gone" />
 
-    <include
-        android:id="@+id/nameResource"
-        layout="@layout/layout_line" />
+    <RelativeLayout
+        android:layout_below="@id/commandName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:id="@+id/detailLayout"
+        >
 
-    <include
-        android:id="@+id/descriptionResource"
-        layout="@layout/layout_line" />
+        <TextView
+            android:id="@+id/serverText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="servers"
+            android:textSize="12dp"
+            android:layout_centerVertical="true"
 
-    <include
-        android:id="@+id/tagsResource"
-        layout="@layout/layout_line" />
+            />
 
-    <include
-        android:id="@+id/URIResource"
-        layout="@layout/layout_line" />
 
-    <include
-        android:id="@+id/channelResource"
-        layout="@layout/layout_line" />
+        <EditText
+            android:id="@+id/serversEdit"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/serverText"
+            android:layout_marginRight="20dp"
+            android:ems="10"
+            android:textColor="#117799"
+            android:textSize="16dp" />
 
-    <include
-        android:id="@+id/ownerResource"
-        layout="@layout/layout_line" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/detailLayout"
+        android:layout_alignParentRight="true"
         android:text="submit" />
 
-</LinearLayout>
+</RelativeLayout>
 

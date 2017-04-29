@@ -42,7 +42,7 @@ public class RequestThread extends Thread {
             InetSocketAddress address = null;
             address = new InetSocketAddress(host, Integer.parseInt(port));
             socket = new Socket();
-            socket.setSoTimeout(10000);
+            socket.setSoTimeout(30000);
             socket.connect(address);
             DataInputStream in = new DataInputStream(socket.getInputStream());
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());

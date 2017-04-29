@@ -30,21 +30,7 @@ public class QueryFragment extends BaseFragment{
         QueryVO vo = new QueryVO();
         vo.setCommand("QUERY");
 
-        ResourceVO resourceVO = new ResourceVO();
-        resourceVO.setChannel(channelEdit.getText().toString().trim());
-        resourceVO.setDescription(desEdit.getText().toString().trim());
-        resourceVO.setName(nameEdit.getText().toString().trim());
-        resourceVO.setOwner(ownerEdit.getText().toString().trim());
-        String tags = tagsEdit.getText().toString().trim();
-        ArrayList<String> taglist = new ArrayList<String>();
-        if (tags != null & tags != "") {
-            for (String string : tags.split(",")) {
-                taglist.add(string);
-            }
-        }
-        resourceVO.setTags(taglist);
-        resourceVO.setUri(uriEdit.getText().toString().trim());
-        resourceVO.setEzserver(null);
+        ResourceVO resourceVO = getResource();
         vo.setResourceTemplate(resourceVO);
 
         vo.setRelay(true);

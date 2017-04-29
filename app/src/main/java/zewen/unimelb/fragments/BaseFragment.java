@@ -19,6 +19,7 @@ import java.util.List;
 
 import butterknife.OnClick;
 import zewen.unimelb.VO.RequestVO;
+import zewen.unimelb.VO.ResourceVO;
 import zewen.unimelb.common.Commands;
 import zewen.unimelb.common.RequestThread;
 import zewen.unimelb.common.ResponseListener;
@@ -103,6 +104,13 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
+
     @Override
     public void onClick(View v) {
 
@@ -113,6 +121,7 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
     void request(RequestVO vo) {
         port = portEdit.getText().toString();
         host = hostEdit.getText().toString();
+        ((MainActivity)getActivity()).dialogShow();
        new RequestThread(port,host,vo,((MainActivity)getActivity()).handler).start();
     }
 
@@ -145,5 +154,24 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
            hostEdit.setText(host);
        if (port!=null&&port.length()>0)
            portEdit.setText(port);
+   }
+
+   ResourceVO getResource(){
+       ResourceVO resourceVO = new ResourceVO();
+       resourceVO.setChannel(channelEdit.getText().toString().trim());
+       resourceVO.setDescription(desEdit.getText().toString().trim());
+       resourceVO.setName(nameEdit.getText().toString().trim());
+       resourceVO.setOwner(ownerEdit.getText().toString().trim());
+       String tags = tagsEdit.getText().toString().trim();
+       ArrayList<String> taglist = new ArrayList<String>();
+       if (tags.length()>0) {
+           for (String string : tags.split(",")) {
+               taglist.add(string);
+           }
+       }
+       resourceVO.setTags(taglist);
+       resourceVO.setUri(uriEdit.getText().toString().trim());
+       resourceVO.setEzserver(null);
+       return  resourceVO;
    }
 }

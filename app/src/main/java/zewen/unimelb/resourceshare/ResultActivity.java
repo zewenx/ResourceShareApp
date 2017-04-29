@@ -2,6 +2,7 @@ package zewen.unimelb.resourceshare;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class ResultActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         ButterKnife.bind(this);
+        result.setMovementMethod(new ScrollingMovementMethod());
     }
 
     @Override
@@ -28,7 +30,7 @@ public class ResultActivity extends Activity {
        List list =  getIntent().getStringArrayListExtra("response");
         String resultdata="";
         for (Object o : list){
-            resultdata+=o.toString();
+            resultdata+=o.toString()+"\n\n";
         }
         result.setText(resultdata);
     }
